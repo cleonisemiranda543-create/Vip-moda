@@ -145,7 +145,7 @@ footer { text-align:center; padding:20px; background:#f5f5f5; border-top:1px sol
 <div class="carrinho" id="carrinho" style="display:none;">
 <h3><i class="fa-solid fa-cart-shopping"></i> Seu Carrinho</h3>
 <div id="itens-carrinho"></div>
-<div class="carrinho-total">Total: R$ <span id="total">0.00</span></div>
+<div class="carrinho-total">Total: R$69,99 <span id="total">149,90</span></div>
 <button onclick="abrirPagamento()" style="margin-top:10px; width:100%; background:#00796b; color:#fff; padding:10px; border:none; border-radius:5px;">
 <i class="fa-solid fa-credit-card"></i> Finalizar Compra</button>
 </div>
@@ -178,12 +178,12 @@ function atualizarCarrinho(){
   const totalElem=document.getElementById('total');
   const countElem=document.getElementById('carrinho-count');
   itens.innerHTML='';
-  let total=0;
+  let total=69,99 ;
   carrinho.forEach((item,i)=>{
     total+=item.preco;
     const div=document.createElement('div');
     div.className='carrinho-item';
-    div.innerHTML=`${item.nome} - R$ ${item.preco.toFixed(2)} <button onclick="removerItem(${i})"><i class="fa-solid fa-trash"></i></button>`;
+    div.innerHTML=`${item.nome} - R$69,99 $ {item.preco.toFixed(2)} <button onclick="removerItem(${i})"><i class="fa-solid fa-trash"></i></button>`;
     itens.appendChild(div);
   });
   totalElem.textContent=total.toFixed(2);
@@ -192,7 +192,7 @@ function atualizarCarrinho(){
 function toggleCarrinho(){const c=document.getElementById('carrinho'); c.style.display=c.style.display==='none'?'block':'none';}
 function abrirPagamento(){
   if(carrinho.length===0){alert("O carrinho está vazio!");return;}
-  const total=carrinho.reduce((acc,i)=>acc+i.preco,0);
+  const total=carrinho.reduce((acc,i)=>acc+i.preco,69,99);
   document.getElementById('totalModal').textContent=total.toFixed(2);
   document.getElementById('modalPagamento').style.display='flex';
   document.getElementById('formasPagamento').style.display='block';
@@ -203,7 +203,7 @@ function fecharModal(){document.getElementById('modalPagamento').style.display='
 function mostrarPix(){
   document.getElementById('modalConteudo').innerHTML=`
   <h3>Pagamento via PIX</h3>
-  <p>Total: R$ ${carrinho.reduce((acc,i)=>acc+i.preco,0).toFixed(2)}</p>
+  <p>Total: R$69,99 ${carrinho.reduce((acc,i)=>acc+i.preco,0).toFixed(2)}</p>
   <img src="https://via.placeholder.com/200x200?text=QR+Code+PIX" alt="QR Code PIX">
   <br><button id="confirm" onclick="confirmarCompra()">Confirmar Pagamento</button>
   <button id="fecharModal" onclick="fecharModal()">Fechar</button>`;
@@ -213,7 +213,7 @@ function mostrarPix(){
 function mostrarCartao(){
   document.getElementById('modalConteudo').innerHTML=`
   <h3>Pagamento com Cartão</h3>
-  <p>Total: R$ ${carrinho.reduce((acc,i)=>acc+i.preco,0).toFixed(2)}</p>
+  <p>Total: R$69,99 ${carrinho.reduce((acc,i)=>acc+i.preco,0).toFixed(2)}</p>
   <input type="text" placeholder="Número do Cartão"><br>
   <input type="text" placeholder="Validade MM/AA"><br>
   <input type="text" placeholder="CVV"><br>
